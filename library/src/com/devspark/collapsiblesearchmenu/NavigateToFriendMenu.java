@@ -3,12 +3,15 @@ package com.devspark.collapsiblesearchmenu;
 import android.content.Context;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -17,9 +20,10 @@ import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
 /**
  * 
  * @author e.shishkin
+ * @author modified by: Michael Wong
  *
  */
-public class CollapsibleMenuUtils {
+public class NavigateToFriendMenu {
 	
 	/**
 	 * Adding collapsible search menu item to the menu.
@@ -27,14 +31,15 @@ public class CollapsibleMenuUtils {
 	 * @param isLightTheme - true if use light them for ActionBar, else false
 	 * @return
 	 */
+	public static AutoCompleteTextView editText;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
 		final MenuItem menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
-	        .setActionView(isLightTheme ? R.layout.search_view_holo_light : R.layout.search_view_holo_dark)
-	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+	        .setActionView(isLightTheme ? R.layout.search_view_holo_light : R.layout.search_view_holo_dark).setVisible(false)
+	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
-		final AutoCompleteTextView editText = (AutoCompleteTextView) searchView.findViewById(R.id.search_src_text);
+		editText = (AutoCompleteTextView) searchView.findViewById(R.id.search_src_text);
 		menuItem.setOnActionExpandListener(new OnActionExpandListener() {
 			
 			@Override
@@ -69,6 +74,7 @@ public class CollapsibleMenuUtils {
 				});
 			}
 		});
+
 		
 		final ImageView closeBtn = (ImageView) menuItem.getActionView().findViewById(R.id.search_close_btn);
 		closeBtn.setOnClickListener(new OnClickListener() {
@@ -100,7 +106,7 @@ public class CollapsibleMenuUtils {
 	 * Hides the keyboard.
 	 * @param view
 	 */
-	private static void hideKeyboard(View view) {
+	public static void hideKeyboard(View view) {
 	    Context context = view.getContext();
 	    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 	    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);

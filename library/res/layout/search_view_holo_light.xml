@@ -48,7 +48,6 @@
             android:dropDownVerticalOffset="0dip"
             android:ellipsize="end"
             android:hint="@string/search_go"
-            android:imeOptions="actionSearch"
             android:inputType="text|textAutoComplete|textNoSuggestions"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
