@@ -2,16 +2,29 @@
     
     <!-- This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short -->
-    <string name="search_go">Search</string>
+    <string name="search_go">Friend</string>
     <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
-    <string name="searchview_description_search">Search</string>
+    <string name="searchview_description_search">Friend</string>
     <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
-    <string name="searchview_description_query">Search query</string>
+    <string name="searchview_description_query">Navigate to a friend</string>
     <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_clear">Clear query</string>
     <!-- SearchView accessibility description for submit button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_submit">Submit query</string>
     <!-- SearchView accessibility description for voice button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_voice">Voice search</string>
+    
+    <string name="add_friend">Friend</string>
+    <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
+    <string name="addfriend_description_search">Add Friend</string>
+    <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
+    <string name="addfriend_description_query">Add a friend</string>
+    <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
+    <string name="addfriend_description_clear">Clear query</string>
+    <!-- SearchView accessibility description for submit button [CHAR LIMIT=NONE] -->
+    <string name="addfriend_description_submit">Submit query</string>
+    <!-- SearchView accessibility description for voice button [CHAR LIMIT=NONE] -->
+    <string name="addfriend_description_voice">Voice search</string>
+    
     
 </resources>

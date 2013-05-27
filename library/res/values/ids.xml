@@ -2,5 +2,6 @@
 <resources>
 
     <item name="collapsible_search_menu_item" type="id"/>
+    <item name="addfriend_search_menu_item" type="id"/>
 
 </resources>

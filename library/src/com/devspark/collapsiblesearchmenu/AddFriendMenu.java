@@ -23,7 +23,7 @@ import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
  * @author modified by: Michael Wong
  *
  */
-public class NavigateToFriendMenu {
+public class AddFriendMenu {
 	
 	/**
 	 * Adding collapsible search menu item to the menu.
@@ -33,13 +33,13 @@ public class NavigateToFriendMenu {
 	 */
 	public static AutoCompleteTextView editText;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
-		final MenuItem menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
+		final MenuItem menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
-	        .setActionView(isLightTheme ? R.layout.search_view_holo_light : R.layout.search_view_holo_dark).setVisible(false)
-	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+	        .setActionView(isLightTheme ? R.layout.add_friend_holo_light : R.layout.search_view_holo_dark).setVisible(false)
+	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
-		editText = (AutoCompleteTextView) searchView.findViewById(R.id.search_src_text);
+		editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);
 		menuItem.setOnActionExpandListener(new OnActionExpandListener() {
 			
 			@Override
@@ -60,7 +60,7 @@ public class NavigateToFriendMenu {
 			}
 		});
 		
-		final View searchPlate = searchView.findViewById(R.id.search_plate);
+		final View searchPlate = searchView.findViewById(R.id.addfriend_plate);
 		editText.setOnFocusChangeListener(new OnFocusChangeListener() {
 			
 			@Override
@@ -79,7 +79,7 @@ public class NavigateToFriendMenu {
 		});
 
 		
-		final ImageView closeBtn = (ImageView) menuItem.getActionView().findViewById(R.id.search_close_btn);
+		final ImageView closeBtn = (ImageView) menuItem.getActionView().findViewById(R.id.addfriend_close_btn);
 		closeBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
