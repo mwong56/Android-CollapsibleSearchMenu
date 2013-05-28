@@ -32,7 +32,7 @@ public class AddFriendMenu {
 		final MenuItem menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_menu_invite : R.drawable.ic_action_search_holo_dark)
 	        .setActionView(isLightTheme ? R.layout.addfriend_view_holo_light : R.layout.search_view_holo_dark)
-	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
 		editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);

@@ -2,11 +2,11 @@
     
     <!-- This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short -->
-    <string name="search_go">Friend</string>
+    <string name="search_go">Friend Username</string>
     <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
-    <string name="searchview_description_search">Friend</string>
+    <string name="searchview_description_search">Friend Username</string>
     <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
-    <string name="searchview_description_query">Navigate to a friend</string>
+    <string name="searchview_description_query">Friend Username</string>
     <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_clear">Clear query</string>
     <!-- SearchView accessibility description for submit button [CHAR LIMIT=NONE] -->
@@ -14,9 +14,9 @@
     <!-- SearchView accessibility description for voice button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_voice">Voice search</string>
     
-    <string name="add_friend">Friend</string>
+    <string name="add_friend">Add a Friend</string>
     <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
-    <string name="addfriend_description_search">Add Friend</string>
+    <string name="addfriend_description_search">Add a Friend</string>
     <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
     <string name="addfriend_description_query">Add a friend</string>
     <!-- SearchView accessibility description for clear button [CHAR LIMIT=NONE] -->
