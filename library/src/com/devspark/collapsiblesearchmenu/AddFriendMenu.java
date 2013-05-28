@@ -27,6 +27,7 @@ public class AddFriendMenu {
 	 * @param isLightTheme - true if use light them for ActionBar, else false
 	 * @return
 	 */
+	public static AutoCompleteTextView editText;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
 		final MenuItem menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
@@ -34,7 +35,7 @@ public class AddFriendMenu {
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
-		final AutoCompleteTextView editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);
+		editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);
 		menuItem.setOnActionExpandListener(new OnActionExpandListener() {
 			
 			@Override
