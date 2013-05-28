@@ -14,7 +14,7 @@
     <!-- SearchView accessibility description for voice button [CHAR LIMIT=NONE] -->
     <string name="searchview_description_voice">Voice search</string>
     
-    <string name="add_friend">Add Friend</string>
+    <string name="add_friend">Friend</string>
     <!-- SearchView accessibility description for search button [CHAR LIMIT=NONE] -->
     <string name="addfriend_description_search">Add Friend</string>
     <!-- SearchView accessibility description for search text field [CHAR LIMIT=NONE] -->
