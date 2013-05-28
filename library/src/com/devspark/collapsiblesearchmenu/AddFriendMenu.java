@@ -3,15 +3,12 @@ package com.devspark.collapsiblesearchmenu;
 import android.content.Context;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -20,7 +17,6 @@ import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
 /**
  * 
  * @author e.shishkin
- * @author modified by: Michael Wong
  *
  */
 public class AddFriendMenu {
@@ -31,15 +27,14 @@ public class AddFriendMenu {
 	 * @param isLightTheme - true if use light them for ActionBar, else false
 	 * @return
 	 */
-	public static AutoCompleteTextView editText;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
 		final MenuItem menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
-	        .setActionView(isLightTheme ? R.layout.add_friend_holo_light : R.layout.search_view_holo_dark).setVisible(false)
+	        .setActionView(isLightTheme ? R.layout.addfriend_view_holo_light : R.layout.search_view_holo_dark)
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
-		editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);
+		final AutoCompleteTextView editText = (AutoCompleteTextView) searchView.findViewById(R.id.addfriend_src_text);
 		menuItem.setOnActionExpandListener(new OnActionExpandListener() {
 			
 			@Override
@@ -65,9 +60,6 @@ public class AddFriendMenu {
 			
 			@Override
 			public void onFocusChange(View v, final boolean hasFocus) {
-				if (!hasFocus) {
-					hideKeyboard(editText);
-				}
 				searchView.post(new Runnable() {
 					public void run() {
 						searchPlate.getBackground().setState(hasFocus ? 
@@ -77,7 +69,6 @@ public class AddFriendMenu {
 				});
 			}
 		});
-
 		
 		final ImageView closeBtn = (ImageView) menuItem.getActionView().findViewById(R.id.addfriend_close_btn);
 		closeBtn.setOnClickListener(new OnClickListener() {
@@ -109,7 +100,7 @@ public class AddFriendMenu {
 	 * Hides the keyboard.
 	 * @param view
 	 */
-	public static void hideKeyboard(View view) {
+	private static void hideKeyboard(View view) {
 	    Context context = view.getContext();
 	    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
 	    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
