@@ -30,7 +30,7 @@ public class AddFriendMenu {
 	public static AutoCompleteTextView editText;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
 		final MenuItem menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
-		menuItem.setIcon(android.R.drawable.ic_menu_invite)
+		menuItem.setIcon(android.R.drawable.ic_input_add)
 	        .setActionView(R.layout.addfriend_view_holo_light)
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
