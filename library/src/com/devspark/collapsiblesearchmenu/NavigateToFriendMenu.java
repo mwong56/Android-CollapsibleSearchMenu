@@ -32,8 +32,9 @@ public class NavigateToFriendMenu {
 	 * @return
 	 */
 	public static AutoCompleteTextView editText;
+	public static MenuItem menuItem;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
-		final MenuItem menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
+		menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
 		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
 	        .setActionView(isLightTheme ? R.layout.search_view_holo_light : R.layout.search_view_holo_dark).setVisible(false)
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);

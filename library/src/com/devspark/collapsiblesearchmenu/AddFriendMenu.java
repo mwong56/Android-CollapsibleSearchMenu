@@ -40,6 +40,7 @@ public class AddFriendMenu {
 			
 			@Override
 			public boolean onMenuItemActionExpand(MenuItem item) {
+				NavigateToFriendMenu.menuItem.collapseActionView();
 				editText.addTextChangedListener(textWatcher);
 				editText.requestFocus();
 				showKeyboard(editText);
