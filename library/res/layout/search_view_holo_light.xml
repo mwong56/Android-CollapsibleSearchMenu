@@ -37,7 +37,7 @@
 
         <AutoCompleteTextView
             android:id="@+id/search_src_text"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="36dp"
             android:layout_gravity="bottom"
             android:layout_weight="1"

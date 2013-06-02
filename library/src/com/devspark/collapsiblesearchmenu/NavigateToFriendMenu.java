@@ -35,8 +35,8 @@ public class NavigateToFriendMenu {
 	public static MenuItem menuItem;
 	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
 		menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
-		menuItem.setIcon(isLightTheme ? R.drawable.ic_action_search_holo_light : R.drawable.ic_action_search_holo_dark)
-	        .setActionView(isLightTheme ? R.layout.search_view_holo_light : R.layout.search_view_holo_dark).setVisible(false)
+		menuItem.setIcon(R.drawable.ic_action_search_holo_light)
+	        .setActionView(R.layout.search_view_holo_light).setVisible(false)
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		final View searchView = menuItem.getActionView();
@@ -45,6 +45,7 @@ public class NavigateToFriendMenu {
 			
 			@Override
 			public boolean onMenuItemActionExpand(MenuItem item) {
+				AddFriendMenu.menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 				editText.addTextChangedListener(textWatcher);
 				editText.requestFocus();
 				showKeyboard(editText);
@@ -57,6 +58,7 @@ public class NavigateToFriendMenu {
 				editText.removeTextChangedListener(textWatcher);
 				// editText.clearFocus();
 				hideKeyboard(editText);
+				AddFriendMenu.menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 				return true;
 			}
 		});
