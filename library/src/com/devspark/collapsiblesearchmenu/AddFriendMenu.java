@@ -22,14 +22,13 @@ import com.actionbarsherlock.view.MenuItem.OnActionExpandListener;
 public class AddFriendMenu {
 	
 	/**
-	 * Adding collapsible search menu item to the menu.
+	 * Adding collapsible  menu item to the menu.
 	 * @param menu
-	 * @param isLightTheme - true if use light them for ActionBar, else false
 	 * @return
 	 */
 	public static AutoCompleteTextView editText;
 	public static MenuItem menuItem;
-	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
+	public static MenuItem addSearchMenuItem(Menu menu) {
 		menuItem = menu.add(Menu.NONE, R.id.addfriend_search_menu_item, Menu.NONE, R.string.add_friend);
 		menuItem.setIcon(R.drawable.ic_menu_invite).setActionView(R.layout.addfriend_view_holo_light)
 	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
@@ -40,7 +39,6 @@ public class AddFriendMenu {
 			@Override
 			public boolean onMenuItemActionExpand(MenuItem item) {
 				NavigateToFriendMenu.menuItem.collapseActionView();
-				editText.addTextChangedListener(textWatcher);
 				editText.requestFocus();
 				showKeyboard(editText);
 				return true;
@@ -49,8 +47,6 @@ public class AddFriendMenu {
 			@Override
 			public boolean onMenuItemActionCollapse(MenuItem item) {
 				editText.setText(null);
-				editText.removeTextChangedListener(textWatcher);
-				// editText.clearFocus();
 				hideKeyboard(editText);
 				return true;
 			}

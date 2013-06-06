@@ -33,7 +33,7 @@ public class NavigateToFriendMenu {
 	 */
 	public static AutoCompleteTextView editText;
 	public static MenuItem menuItem;
-	public static MenuItem addSearchMenuItem(Menu menu, boolean isLightTheme, final TextWatcher textWatcher) {
+	public static MenuItem addSearchMenuItem(Menu menu) {
 		menuItem = menu.add(Menu.NONE, R.id.collapsible_search_menu_item, Menu.NONE, R.string.search_go);
 		
 		menuItem.setIcon(R.drawable.ic_action_search_holo_light);
@@ -48,7 +48,6 @@ public class NavigateToFriendMenu {
 			@Override
 			public boolean onMenuItemActionExpand(MenuItem item) {
 				AddFriendMenu.menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-				editText.addTextChangedListener(textWatcher);
 				editText.requestFocus();
 				showKeyboard(editText);
 				return true;
@@ -57,7 +56,6 @@ public class NavigateToFriendMenu {
 			@Override
 			public boolean onMenuItemActionCollapse(MenuItem item) {
 				editText.setText(null);
-				editText.removeTextChangedListener(textWatcher);
 				hideKeyboard(editText);
 				AddFriendMenu.menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 				return true;
